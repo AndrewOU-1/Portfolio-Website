@@ -166,11 +166,15 @@ mainDiv3.appendChild(divLinkedin);
 // creating var to append <i> to
 var iconId = document.getElementById("linkedinId");
 
-document.createElement("i");
-const iLinkedin = document.createElement("i"); // icon
+//document.createElement("a"); | dont need
+const iLinkedin = document.createElement("a"); // icon
 
 iLinkedin.classList.add("fa-brands", "fa-linkedin");
 iLinkedin.ariaHidden = "true";
+iLinkedin.href = "https://www.linkedin.com/in/andrew-h-rauch";
+iLinkedin.target = "_blank";
+iLinkedin.style.textDecoration = "none";
+iLinkedin.style.color = "black";
 iconId.appendChild(iLinkedin);
 
 // styling mail
@@ -179,11 +183,26 @@ iLinkedin.style.marginLeft = "0";
 iLinkedin.style.fontSize = "32px";
 
 
-document.createElement("div");
-const divLinkedinText = document.createElement("div"); // text
+//document.createElement("a"); | dont need
+const divLinkedinText = document.createElement("a"); // text
 divLinkedinText.classList.add("text");
 divLinkedinText.textContent = "linkedin.com/in/andrew-h-rauch";
-// appending <div> to 'larger' <div>
+divLinkedinText.href = "https://www.linkedin.com/in/andrew-h-rauch";
+divLinkedinText.target = "_blank";
+divLinkedinText.style.textDecoration = "none";
+divLinkedinText.style.color = "black";
+
+// hover start
+divLinkedinText.addEventListener("mouseover", function (event) {
+    event.target.style.textDecoration = "underline";
+}, false);
+
+divLinkedinText.addEventListener("mouseout", function (event) {
+    event.target.style.textDecoration = "none"
+}, false);
+// hover end
+
+// appending <a> to 'larger' <div>
 mainDiv3.appendChild(divLinkedinText);
 
 // linkedin end

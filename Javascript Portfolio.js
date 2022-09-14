@@ -2,6 +2,7 @@
 document.body.style.fontFamily = "franklin gothic";
 document.body.style.textAlign = "center";
 document.body.style.margin = "0px";
+document.body.style.marginBottom = "0";
 document.body.style.lineHeight = "1.5";
 
 
@@ -38,29 +39,29 @@ const createList = (spaceCrafts) => {
         // Mouse hover for home nav menu
         //let test = document.getElementById("homeList"); | didnt need
         listViewItem.addEventListener("mouseover", function (event) {
-            event.target.style.backgroundColor = "#111111";
+            event.target.style.backgroundColor = "#505050";
         }, false);
 
         listViewItem.addEventListener("mouseout", function (event) {
-            event.target.style.backgroundColor = "#333333"
+            event.target.style.backgroundColor = "#606060"
         }, false);
 
         //making classes for each element in list
         listViewItem.classList.add("list");
-
+        
     }
     return listView;
 }
 
 
 
-const spaceCrafts = ['HOME', 'ABOUT', 'PROJECTS', 'CONTACT']
+const spaceCrafts = ['ABOUT', 'PROJECTS', 'CONTACT', 'RESUME']
 const ul = createList(spaceCrafts)
 document.body.appendChild(ul)
 
 //find current list of elements, store in var, then clear element's txt
 var lists = document.getElementsByClassName("list");
-for (var i = 0; i < lists.length; i++) {
+for (var i = 0; i < lists.length-2; i++) {
 
     var text = lists[i].textContent;
 
@@ -71,11 +72,24 @@ for (var i = 0; i < lists.length; i++) {
     lists[i].appendChild(a);
 }
 
+// loop just for contact (technically also hits resume, but did another fix for resume)
+var lists2 = document.getElementsByClassName("list");
+for (var i = 2; i < lists2.length; i++) {
+
+    var text = lists2[i].textContent;
+
+    lists2[i].textContent = "";
+    var a = document.createElement('a');
+    a.href = "Javascript Portfolio - Contact.html";
+    a.target = "_blank";
+    a.textContent = text;
+    lists2[i].appendChild(a);
+}
 
 //make box clickable
 function new_window() {
     var anchors = document.getElementsByTagName('a');
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < anchors.length-3; i++) {
         anchors[i].style.display = "block";
         anchors[i].style.padding = "28px";
         anchors[i].style.color = "white";
@@ -87,12 +101,7 @@ function new_window() {
 }
 window.onload = new_window;
 
-// contact link | TODO;etc: seperate HTML for Contact section
 
-a.href = "Javascript Portfolio - Contact.html";
-a.target = "_blank";
-
-// end of contact link
 
 
 // ul styling | 1st part removes bullets
@@ -100,7 +109,7 @@ ul.style.listStyleType = "none";
 ul.style.margin = "0";
 ul.style.padding = "0";
 ul.style.overflow = "hidden";
-ul.style.backgroundColor = "#333333";
+ul.style.backgroundColor = "#606060";
 
 
 
@@ -110,6 +119,7 @@ document.createElement("h1")
 const h1AboutMe = document.createElement("h1");
 h1AboutMe.textContent = "ANDREW RAUCH";
 h1AboutMe.style.fontFamily = "franklin gothic condensed";
+h1AboutMe.style.marginTop = "70px";
 document.body.append(h1AboutMe);
 
 h1AboutMe.setAttribute("id", "ABOUT");
@@ -117,47 +127,23 @@ h1AboutMe.setAttribute("id", "ABOUT");
 // TEMP A BUNCH OF <b/> FOR TESTING
 document.createElement("p")
 const pAboutMe = document.createElement("p");
-pAboutMe.innerHTML = "My name is Andrew Rauch. I'm a Senior at the University of Oklahoma who will graduate in December.<br/><br/><br/>";
+pAboutMe.innerHTML = "My name is Andrew Rauch. I am an aspiring data scientist who enjoys connecting the dots be it ideas from different disciplines, people from different teams, or applications from different industries. I have strong technical skills and an academic background in data analysis, statistics, and system design.<br><br><br>My passion lies in a mix of data analytics and programming.Lately I’ve been enjoying coding in JavaScript, HTML, and CSS, but I plan to learn much more. I'm equipped with the tools to solve technical business problems through my courses and personal projects.<br><br><br>I'm graduating in Fall 2022, and I'm interested in internships in data science, data analytics, software development, web development, and machine learning roles.Feel free to contact me via the contact button on the website for more information!";
 pAboutMe.style.maxWidth = "400px";
-pAboutMe.style.textAlign = "center";
+pAboutMe.style.textAlign = "justify";
 pAboutMe.style.display = "inline-block";
 document.body.append(pAboutMe);
 
 // about me end
 
-document.write("<br><br><br>");
 
-// resume section start
-var pdfResume = document.createElement('a');
-pdfResume.href = "Fall_2022_Resume.pdf";
+// resume link start
+a.href = "Fall_2022_Resume.pdf";
+// resume link end
 
-pdfResume.style.backgroundColor = "#333333";
-pdfResume.style.padding = "24px";
-pdfResume.style.maxWidth = "60px";
-pdfResume.style.borderRadius = "8px";
-pdfResume.style.border = "28px";
-pdfResume.textContent = "Resume";
-pdfResume.style.color = "white";
-pdfResume.style.textDecoration = "none";
-//pdfResume.style.display = "block";
-pdfResume.style.textAlign = "center";
-
-
-
-pdfResume.addEventListener("mouseover", function (event) {
-    event.target.style.backgroundColor = "#111111";
-}, false);
-
-pdfResume.addEventListener("mouseout", function (event) {
-    event.target.style.backgroundColor = "#333333"
-}, false);
-
-document.body.append(pdfResume);
-// resume section end
 
 
 // breaks for spacing
-document.write("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+document.write("<br><br><br><br><br><br><br><br>");
 
 
 // projects start
@@ -169,16 +155,97 @@ h1Projects.style.fontFamily = "franklin gothic condensed";
 document.body.append(h1Projects);
 
 
-
-document.createElement("p")
-
 h1Projects.setAttribute("id", "PROJECTS"); // set id for projects section
 
-// utilize innerHTML 4 ez page breaks
-const pProjects = document.createElement("p");
-pProjects.innerHTML = "HTML Form Project<br/>Hobby Lobby Project<br/>Project 3";
-document.body.append(pProjects);
+// project 1 start
+const project1 = document.createElement("a");
+project1.textContent = "Udacity Bikeshare Project";
+project1.href = "https://github.com/AndrewOU-1/Udacity-Bikeshare-Project";
+project1.target = "_blank";
+project1.style.textDecoration = "none";
+project1.style.color = "black";
+project1.style.backgroundColor = "#DCDCDC";
+project1.style.border = "2px solid";
+project1.style.padding = "5px";
+
+
+// making hover function to make link look clickable
+project1.addEventListener("mouseover", function (event) {
+    event.target.style.backgroundColor = "#C0C0C0";
+}, false);
+
+project1.addEventListener("mouseout", function (event) {
+    event.target.style.backgroundColor = "#DCDCDC"
+}, false);
+// end of hover function
+
+document.body.append(project1);
+// project 1 end
+
+document.write("<br><br>");
+
+// project 2 start
+const project2 = document.createElement("a");
+project2.textContent = "Hobby Lobby Group Project";
+project2.href = "https://github.com/alecamend/3033_Project";
+project2.target = "_blank";
+project2.style.textDecoration = "none";
+project2.style.color = "black";
+project2.style.backgroundColor = "#DCDCDC";
+project2.style.border = "2px solid";
+project2.style.padding = "5px";
+
+
+// making hover function to make link look clickable
+project2.addEventListener("mouseover", function (event) {
+    event.target.style.backgroundColor = "#C0C0C0";
+}, false);
+
+project2.addEventListener("mouseout", function (event) {
+    event.target.style.backgroundColor = "#DCDCDC"
+}, false);
+// end of hover function
+
+document.body.append(project2);
+// project 2 end
+
+
+document.write("<br><br>");
+
+
+// project 3 start
+const project3 = document.createElement("a");
+project3.textContent = "This Website!";
+project3.href = "https://github.com/AndrewOU-1/Portfolio-Website";
+project3.target = "_blank";
+project3.style.textDecoration = "none";
+project3.style.color = "black";
+project3.style.backgroundColor = "#DCDCDC";
+project3.style.border = "2px solid";
+project3.style.padding = "5px";
+
+
+// making hover function to make link look clickable
+project3.addEventListener("mouseover", function (event) {
+    event.target.style.backgroundColor = "#C0C0C0";
+}, false);
+
+project3.addEventListener("mouseout", function (event) {
+    event.target.style.backgroundColor = "#DCDCDC"
+}, false);
+// end of hover function
+
+document.body.append(project3);
+// project 3 end
 
 // projects end
 
+
+// credits start
+
+const credits = document.createElement("p");
+credits.textContent = "This website was fully made by me and my friend google.";
+credits.style.marginTop = "180px";
+credits.style.fontSize = "13px";
+document.body.append(credits);
 
