@@ -10,5 +10,5 @@ but he challenged me by saying, "Oh why don't you make it all in JavaScript, jus
 And now we have the final project.
 
 
-Most of the .js files are MESSY, and some methods used could be much cleaner in the future, but overall I learned a plethora of JavaScript AND HTML and CSS along the way.
+Most of the .js files are MESSY, and some methods used could be much cleaner in the future, but overall I learned a plethora of JavaScript AND HTML AND CSS along the way.
 Doing this project I gained a great understanding of basic JavaScript, and a suprising amount of HTML and CSS since I needed to create and style those elements via JS.
